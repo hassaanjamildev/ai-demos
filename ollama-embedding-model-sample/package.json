@@ -1,9 +1,13 @@
 {
   "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "start": "ts-node index.ts"
   },
   "dependencies": {
     "openai": "^6.33.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "ts-node": "^10.0.0"
   }
 }
