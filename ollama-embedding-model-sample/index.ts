@@ -1,4 +1,4 @@
-import { openai } from "./config.ts";
+import { openai } from "./config";
 
 const content: string[] = ["Hassan Jamil"];
 
