@@ -1,0 +1,24 @@
+{
+  "name": "ai-monorepo",
+  "version": "1.0.0",
+  "description": "AI/ML applications and examples monorepo",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "pnpm --filter ollama-embedding-model-sample start",
+    "install-all": "pnpm install",
+    "clean": "rm -rf node_modules && pnpm install"
+  },
+  "keywords": [
+    "ai",
+    "embeddings",
+    "ollama",
+    "openai",
+    "monorepo"
+  ],
+  "author": "Hassan Jamil",
+  "license": "MIT",
+  "pnpm": {
+    "workspace": "pnpm-workspace.yaml"
+  }
+}
