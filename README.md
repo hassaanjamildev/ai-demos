@@ -6,42 +6,119 @@ A monorepo project containing AI/ML related applications and examples, focused o
 
 ```
 AI/
-├── ollama-embedding-model-sample/     # Ollama embeddings with OpenAI SDK
-├── package.json                       # Root workspace config
-├── README.md                          # This file
-└── .git/                              # Git repository
+├── 1-ollama-embedding-model-sample/       # Ollama embeddings with OpenAI SDK
+├── 2-embedding-vector-db/                 # Vector database with embeddings
+├── 3-vercel-ai-sdk-ollama/                # Vercel AI SDK + Ollama integration
+├── package.json                           # Root workspace config
+├── pnpm-workspace.yaml                    # Workspace configuration
+├── README.md                              # This file
+└── .git/                                  # Git repository
 ```
 
 ## 🎯 Projects Overview
 
-### 1. **Ollama Embedding Model Sample**
+### 1. **Ollama Embedding Model Sample** ✨
 
-📁 Location: `./ollama-embedding-model-sample/`
+📁 Location: `./1-ollama-embedding-model-sample/`
 
 A practical example of using Ollama's `nomic-embed-text` model with the OpenAI JavaScript SDK.
 
 **Features:**
 
 - Local embeddings without API costs
-- 768-dimensional embeddings matching quality of OpenAI's `text-embedding-3-small`
+- 768-dimensional embeddings matching OpenAI's `text-embedding-3-small`
 - Drop-in replacement for OpenAI SDK
-- Easy switching between Ollama and OpenAI providers
+- Easy provider switching
 
 **Quick Start:**
 
 ```bash
-cd ollama-embedding-model-sample
+cd 1-ollama-embedding-model-sample
 pnpm install
 pnpm start
 ```
 
+**Full Documentation:** [1-ollama-embedding-model-sample/README.md](./1-ollama-embedding-model-sample/README.md)
+
+---
+
+### 2. **Embedding Vector Database**
+
+📁 Location: `./2-embedding-vector-db/`
+
+Integration of embeddings with vector database capabilities using Prisma.
+
+**Features:**
+
+- Vector storage and retrieval
+- pgvector extension support
+- Prisma ORM integration
+- Document management
+
+**Quick Start:**
+
+```bash
+cd 2-embedding-vector-db
+pnpm install
+pnpm start
+```
+
+**Full Documentation:** [2-embedding-vector-db/README.md](./2-embedding-vector-db/README.md)
+
+---
+
+### 3. **Vercel AI SDK + Ollama Integration** 🚀 (New!)
+
+📁 Location: `./3-vercel-ai-sdk-ollama/`
+
+Comprehensive demonstration of Vercel AI SDK with Ollama featuring the **Driving Institute v2** model and specialized tools for driving education.
+
+**Key Features:**
+
+- ✅ Modular tool architecture with dedicated tool directory
+- ✅ Driving Institute v2 model configuration (optimized for education)
+- ✅ 4 specialized tools: Road Rules, Scenario Analysis, Practice Questions, Safety Tips
+- ✅ Language-aware responses matching input language
+- ✅ Full TypeScript support with type-safe parameters
+- ✅ Comprehensive configuration demo and examples
+
+**Model Configuration:**
+
+- **Temperature:** 0.3 (consistent safety recommendations)
+- **Top-P:** 0.9 (balanced variety)
+- **Top-K:** 40 (context-aware responses)
+- **Timeout:** 30 seconds with 3 retries
+
+**Available Tools:**
+
+1. **Check Road Rules** - Query specific traffic regulations
+2. **Analyze Driving Scenario** - Safety analysis for driving situations
+3. **Generate Practice Question** - Create driving test questions
+4. **Get Safety Tips** - Retrieve safety tips for conditions
+
+**Quick Start:**
+
+```bash
+cd 3-vercel-ai-sdk-ollama
+pnpm install
+pnpm start
+```
+
+**Output Example:**
+
+- Configuration details for driving-institute:v2 model
+- Model capability test
+- 4 detailed tool usage examples with proper error handling
+- Language consistency validation
+
 **Technology Stack:**
 
-- Node.js (ES6 modules)
-- OpenAI JavaScript SDK
-- Ollama (local LLM server)
+- Vercel AI SDK (^6.0.0)
+- ai-sdk-ollama (^3.8.3)
+- Zod for schema validation
+- TypeScript 5.9.3
 
-**Full Documentation:** [ollama-embedding-model-sample/README.md](./ollama-embedding-model-sample/README.md)
+**Full Documentation:** [3-vercel-ai-sdk-ollama/README.md](./3-vercel-ai-sdk-ollama/README.md)
 
 ---
 
@@ -100,8 +177,16 @@ pnpm install
 ### Running Individual Projects
 
 ```bash
-# Ollama Embedding Example
-cd ollama-embedding-model-sample
+# Ollama Embedding Example (Project 1)
+cd 1-ollama-embedding-model-sample
+pnpm start
+
+# Vector Database Example (Project 2)
+cd 2-embedding-vector-db
+pnpm start
+
+# Vercel AI SDK Example (Project 3)
+cd 3-vercel-ai-sdk-ollama
 pnpm start
 ```
 
@@ -159,28 +244,40 @@ When the monorepo grows, consider:
 
 ---
 
-## 💻 Technology Stack
+## � Technology Stack
 
 ### Cross-Project
 
 - **Runtime**: Node.js (ES6 modules)
 - **Package Manager**: pnpm
-- **Language**: JavaScript
+- **Language**: JavaScript/TypeScript
+- **Workspace**: pnpm workspaces
 
 ### AI/ML Stack
 
 - **Ollama** - Local LLM inference
+- **Vercel AI SDK** - Unified AI interface with tool support
 - **OpenAI SDK** - Chat and embeddings integration
 - **Nomic Embed Text** - High-quality embeddings
+- **Prisma** - Database ORM
+- **pgvector** - PostgreSQL vector extension
+
+### Development Tools
+
+- **TypeScript** 5.9.3 - Type safety
+- **Zod** - Schema validation
+- **tsx** - TypeScript executor
+- **ESLint** - Code linting (optional)
 
 ### Models Available
 
-| Model              | Type       | Size | Use Case                    |
-| ------------------ | ---------- | ---- | --------------------------- |
-| `nomic-embed-text` | Embeddings | 274M | Semantic search, similarity |
-| `llama2`           | LLM        | 7B   | Chat, text generation       |
-| `mistral`          | LLM        | 7B   | Fast inference              |
-| `neural-chat`      | LLM        | 7B   | Conversational              |
+| Model                  | Type       | Size | Use Case                    | Project |
+| ---------------------- | ---------- | ---- | --------------------------- | ------- |
+| `nomic-embed-text`     | Embeddings | 274M | Semantic search, similarity | 1, 2    |
+| `llama2`               | LLM        | 7B   | Chat, text generation       | 1       |
+| `mistral`              | LLM        | 7B   | Fast inference              | 1       |
+| `neural-chat`          | LLM        | 7B   | Conversational              | 1       |
+| `driving-institute:v2` | LLM        | ~7B  | Driving education, tools    | 3       |
 
 ---
 
@@ -188,7 +285,21 @@ When the monorepo grows, consider:
 
 Each project contains detailed documentation:
 
-- **[ollama-embedding-model-sample](./ollama-embedding-model-sample/README.md)** - Embeddings setup and usage
+- **[1-ollama-embedding-model-sample](./1-ollama-embedding-model-sample/README.md)** - Embeddings setup and usage
+- **[2-embedding-vector-db](./2-embedding-vector-db/README.md)** - Vector database integration
+- **[3-vercel-ai-sdk-ollama](./3-vercel-ai-sdk-ollama/README.md)** - AI SDK + Tool integration
+
+## 📊 Project Comparison
+
+| Feature           | Project 1       | Project 2        | Project 3         |
+| ----------------- | --------------- | ---------------- | ----------------- |
+| **Focus**         | Embeddings      | Vector DB        | AI + Tools        |
+| **Models**        | Embeddings      | Embeddings       | LLM               |
+| **Tool Support**  | ✗               | ✗                | ✓                 |
+| **Type Safety**   | Partial         | Partial          | Full (TypeScript) |
+| **Configuration** | Basic           | Advanced         | Advanced          |
+| **Use Case**      | Semantic Search | Document Storage | Intelligent Agent |
+| **Complexity**    | Beginner        | Intermediate     | Advanced          |
 
 ---
 
@@ -224,9 +335,13 @@ pnpm install
 ## 🔗 Useful Resources
 
 - [Ollama Official](https://ollama.ai)
+- [Vercel AI SDK Documentation](https://sdk.vercel.ai/)
 - [OpenAI JavaScript SDK](https://github.com/openai/node-sdk)
+- [Prisma Documentation](https://www.prisma.io/docs/)
 - [pnpm Documentation](https://pnpm.io)
 - [Node.js ES Modules](https://nodejs.org/en/docs/guides/ecmascript-modules/)
+- [TypeScript Documentation](https://www.typescriptlang.org/)
+- [Zod Schema Validation](https://zod.dev/)
 
 ---
 
@@ -248,11 +363,14 @@ See `.env.example` in individual projects for templates.
 
 Planned additions to this monorepo:
 
-- [ ] Vector database integration (Pinecone/Weaviate)
-- [ ] Chat application example
-- [ ] Document embedding & search
-- [ ] Fine-tuning pipeline
-- [ ] RAG (Retrieval Augmented Generation) example
+- [ ] Advanced RAG (Retrieval Augmented Generation) example
+- [ ] Multi-model orchestration
+- [ ] Real-time streaming responses
+- [ ] Agent-based workflows
+- [ ] Custom model fine-tuning pipeline
+- [ ] Chat application with persistent storage
+- [ ] Document processing and indexing
+- [ ] Performance benchmarking tools
 
 ---
 
@@ -286,4 +404,5 @@ This monorepo demonstrates best practices for:
 
 ---
 
-**Last Updated**: April 5, 2026
+**Last Updated**: April 24, 2026
+**Latest Project**: Vercel AI SDK + Ollama Integration (Project 3)
