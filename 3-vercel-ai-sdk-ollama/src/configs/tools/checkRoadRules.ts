@@ -3,13 +3,13 @@
  * Used to query specific traffic rules and regulations
  */
 
-export interface CheckRoadRulesParams {
+export type CheckRoadRulesParams = {
   // Specific road rule topic (required)
   topic: string;
 
   // Geographic region/country for rules (optional)
   region?: string;
-}
+};
 
 export const checkRoadRulesTool = {
   name: "check_road_rules",

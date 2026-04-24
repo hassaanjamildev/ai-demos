@@ -3,13 +3,13 @@
  * Used to retrieve safety recommendations for specific driving conditions
  */
 
-export interface GetSafetyTipsParams {
+export type GetSafetyTipsParams = {
   // Weather, time, or traffic condition (required)
   condition: string;
 
   // Type of vehicle - car, motorcycle, or truck (optional)
   vehicleType?: "car" | "motorcycle" | "truck";
-}
+};
 
 export const getSafetyTipsTool = {
   name: "get_safety_tips",

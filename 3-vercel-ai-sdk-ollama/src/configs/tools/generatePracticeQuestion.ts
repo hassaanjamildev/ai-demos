@@ -3,7 +3,7 @@
  * Used to generate driving test practice questions
  */
 
-export interface GeneratePracticeQuestionParams {
+export type GeneratePracticeQuestionParams = {
   // Topic for the practice question (required)
   topic: string;
 
